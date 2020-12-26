@@ -1,4 +1,5 @@
-const BookShelf = ({ name }) => {
+const BookShelf = ({ name, books }) => {
+  console.log(name, books)
   return (
     <div className='bookshelf'>
       <h2 className='bookshelf-title'>{name}</h2>
