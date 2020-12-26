@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getAll } from './BooksAPI'
 import './App.css'
 import Navigation from './components/Navigation/Navigation'
+import BookShelf from './components/BookShelf/BooksShelf'
 
 const BooksApp = () => {
   // state = {
@@ -14,18 +15,24 @@ const BooksApp = () => {
   //   showSearchPage: false,
   // }
   const [books, setBooks] = useState([])
+  const readingBooks = books && books.filter((book) => book.shelf === 'currentlyReading')
+  const toReadBooks = books && books.filter((book) => book.shelf === 'wantToRead')
+  const readBooks = books && books.filter((book) => book.shelf === 'read')
 
   useEffect(() => {
     getAll().then((data) => setBooks(data))
   }, [])
-
   return (
     <div className='app'>
-      {console.log(books)}
       <div className='list-books'>
         <Navigation />
         <div className='list-books-content'>
           <div>
+            {console.log(books)}
+            <BookShelf name='Reading' books={readingBooks} />
+            <BookShelf name='To Read' books={toReadBooks} />
+            <BookShelf name='Read' books={readBooks} />
+            {/* 
             <div className='bookshelf'>
               <h2 className='bookshelf-title'>Currently Reading</h2>
               <div className='bookshelf-books'>
@@ -243,6 +250,7 @@ const BooksApp = () => {
                 </ol>
               </div>
             </div>
+           */}
           </div>
         </div>
         <div className='open-search'>
