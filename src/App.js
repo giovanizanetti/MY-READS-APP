@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getAll } from './BooksAPI'
 import './App.css'
+import Navigation from './components/Navigation/Navigation'
 
 const BooksApp = () => {
   // state = {
@@ -22,9 +23,7 @@ const BooksApp = () => {
     <div className='app'>
       {console.log(books)}
       <div className='list-books'>
-        <div className='list-books-title'>
-          <h1>MyReads</h1>
-        </div>
+        <Navigation />
         <div className='list-books-content'>
           <div>
             <div className='bookshelf'>
