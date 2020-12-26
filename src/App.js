@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getAll } from './BooksAPI'
 import './App.css'
 
@@ -12,14 +12,16 @@ const BooksApp = () => {
   //    */
   //   showSearchPage: false,
   // }
+  const [books, setBooks] = useState([])
 
   useEffect(() => {
-    getAll().then((data) => console.log(data))
-  }, [])
+    getAll().then((data) => setBooks(data))
+    console.log(books)
+  }, [books])
 
   return (
     <div className='app'>
-      {this.state.showSearchPage ? (
+      {books ? (
         <div className='search-books'>
           <div className='search-books-bar'>
             <button className='close-search' onClick={() => this.setState({ showSearchPage: false })}>
