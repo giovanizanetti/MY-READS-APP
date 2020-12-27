@@ -1,6 +1,7 @@
 import './App.css'
 import Navigation from './components/Navigation/Navigation'
 import Main from './components/Main/Main'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 const BooksApp = () => {
   // state = {
@@ -16,12 +17,14 @@ const BooksApp = () => {
   return (
     <div className='app'>
       <Navigation />
-      {/* <div className='list-books'> */}
-      <Main />
-      <div className='open-search'>
-        <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
-      </div>
-      {/* </div> */}
+      <Router>
+        <div className='list-books'>
+          <Main />
+          <div className='open-search'>
+            <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
+          </div>
+        </div>
+      </Router>
     </div>
   )
 }
