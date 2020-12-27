@@ -1,11 +1,7 @@
 const BookShelfChanger = ({ shelf, handleShelf, id }) => {
-  const handleChange = (e) => {
-    handleShelf(e.target.value, id)
-    console.log(e.target.value)
-  }
   return (
     <div className='book-shelf-changer'>
-      <select value={shelf} onChange={handleChange}>
+      <select value={shelf} onChange={(e) => handleShelf(e.target.value, id)}>
         <option value='move' disabled>
           Move to...
         </option>
