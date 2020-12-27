@@ -1,11 +1,18 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import BookShelf from '../BookShelf/BookShelf'
+import { search } from '../../BooksAPI'
 
 const Search = () => {
-  const [query, setQuery] = useState('')
+  const [query, setQuery] = useState(null)
 
-  const handleChange = (e) => setQuery(e.target.value)
+  // useEffect(() => , [query])
+
+  const handleChange = (e) => {
+    setQuery(e.target.value)
+    query && search(query).then((data) => console.log(data))
+    console.log(query)
+  }
 
   return (
     <div className='search-books'>
