@@ -23,9 +23,9 @@ const BooksApp = () => {
           <Route exact path='/'>
             <div className='list-books'>
               <Main />
-              <div className='open-search'>
+              <Link to='/search' className='open-search'>
                 <button>Add a book</button>
-              </div>
+              </Link>
             </div>
           </Route>
           <Route path='/search'>
