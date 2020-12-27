@@ -18,12 +18,14 @@ const BooksApp = () => {
     <div className='app'>
       <Navigation />
       <Router>
-        <div className='list-books'>
-          <Main />
-          <div className='open-search'>
-            <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
+        <Switch>
+          <div className='list-books'>
+            <Main />
+            <div className='open-search'>
+              <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
+            </div>
           </div>
-        </div>
+        </Switch>
       </Router>
     </div>
   )
