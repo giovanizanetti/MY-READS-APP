@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getAll } from '../../BooksAPI'
+import { getAll, update } from '../../BooksAPI'
 import BookShelf from '../BookShelf/BookShelf'
 
 const Main = () => {
@@ -13,6 +13,7 @@ const Main = () => {
     const bookIndex = myBooks.findIndex((book) => book.id === id)
     myBooks[bookIndex].shelf = shelf
     setBooks(myBooks)
+    update(id, shelf)
   }
 
   useEffect(() => {
