@@ -23,8 +23,8 @@ const Main = () => {
   return (
     <div className='list-books-content'>
       <div>
-        <BookShelf name='Reading' books={currentlyReading} handleShelf={handleShelf} />
-        <BookShelf name='To Read' books={wantToRead} handleShelf={handleShelf} />
+        <BookShelf name='Currently eading' books={currentlyReading} handleShelf={handleShelf} />
+        <BookShelf name='Want to Read' books={wantToRead} handleShelf={handleShelf} />
         <BookShelf name='Read' books={readBooks} handleShelf={handleShelf} />
       </div>
     </div>
