@@ -1,11 +1,15 @@
-const Book = ({ book }) => {
+import BookShelfChanger from '../BookShelfChanger/BookShelfChanger'
+
+const Book = ({ book, handleShelf }) => {
   const {
     imageLinks: { thumbnail },
     title,
     authors,
+    shelf,
+    id,
   } = book
 
-  const bookAuthors = authors && authors.map((author) => <p>{author}</p>)
+  const bookAuthors = authors && authors.map((author) => <p key={author}>{author}</p>)
 
   return (
     <li>
@@ -18,17 +22,8 @@ const Book = ({ book }) => {
               height: 192,
               backgroundImage: `url(${thumbnail})`,
             }}
-          ></div>
-          <div className='book-shelf-changer'>
-            <select>
-              <option value='move' disabled>
-                Move to...
-              </option>
-              <option value='currentlyReading'>Currently Reading</option>
-              <option value='wantToRead'>Want to Read</option>
-              <option value='read'>Read</option>
-              <option value='none'>None</option>
-            </select>
+          >
+            <BookShelfChanger shelf={shelf} id={id} handleShelf={handleShelf} />
           </div>
         </div>
         <div className='book-title'>{title}</div>
