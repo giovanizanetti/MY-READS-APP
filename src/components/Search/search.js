@@ -9,6 +9,7 @@ const Search = () => {
 
   const [query, setQuery] = useState('')
   const [books, setBooks] = useState([])
+  console.log(books.map((book) => book.imageLinks))
 
   useEffect(() => {
     query && search(query).then((data) => setBooks(data))

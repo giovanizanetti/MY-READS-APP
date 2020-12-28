@@ -1,18 +1,19 @@
+import { useContext } from 'react'
+import BooksProvider from '../../BooksProvider'
 import BookShelfChanger from '../BookShelfChanger/BookShelfChanger'
+import placeholder from '../../assets/book-placeholder.jpeg'
 
 const Book = ({ book }) => {
-  const {
-    imageLinks: { thumbnail },
-    title,
-    authors,
-    shelf,
-    id,
-  } = book
+  console.log(book.imageLinks)
+  const { selectBook, handleSelect } = useContext(BooksProvider)
+
+  const { title, authors, shelf, id, imageLinks } = book
+  const thumbnail = imageLinks ? book.imageLinks.thumbnail : placeholder
 
   const bookAuthors = authors && authors.map((author) => <p key={author}>{author}</p>)
 
   return (
-    <li onClick={() => console.log('selected book', id)}>
+    <li>
       <div className='book'>
         <div className='book-top'>
           <div
@@ -23,7 +24,7 @@ const Book = ({ book }) => {
               backgroundImage: `url(${thumbnail})`,
             }}
           >
-            <BookShelfChanger shelf={shelf} id={id} />
+            <BookShelfChanger shelf={shelf} book={book} />
           </div>
         </div>
         <div className='book-title'>{title}</div>
