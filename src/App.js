@@ -13,21 +13,31 @@ const BooksApp = () => {
   const wantToRead = books && books.filter((book) => book.shelf === 'wantToRead')
   const read = books && books.filter((book) => book.shelf === 'read')
 
-  const handleShelf = (shelf, id, book) => {
-    console.log(id)
+  const handleShelf = (shelf, book) => {
+    const { id } = book
     const myBooks = [...books]
-    if (id) {
+    // check if book is already
+    const isBook = myBooks.find((book) => book.id === id)
+
+    // when book already exists, change it to the selected shelf
+    if (isBook !== undefined) {
       const bookIndex = myBooks.findIndex((book) => book.id === id)
       myBooks[bookIndex].shelf = shelf
-    }
-    if (book) {
+      console.log('this book is already there')
+      // When book does not exists, add it to teh selected shelf
+    } else {
       myBooks.push(book)
     }
+    // update state
     setBooks(myBooks)
+    // update sever
     update(id, shelf)
+    // update selected book
+    setSelectedBook(null)
   }
 
-  handleSelect = (book) => {
+  const handleSelect = (book) => {
+    console.log(book)
     setSelectedBook(book)
   }
 
