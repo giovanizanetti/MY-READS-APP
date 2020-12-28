@@ -19,7 +19,7 @@ const Search = () => {
     if (!searchTerm) setBooks([])
     setQuery(searchTerm)
   }
-
+  console.log(books)
   return (
     <div className='search-books'>
       <div className='search-books-bar'>

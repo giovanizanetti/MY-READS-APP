@@ -27,6 +27,10 @@ const BooksApp = () => {
     update(id, shelf)
   }
 
+  handleSelect = (book) => {
+    setSelectedBook(book)
+  }
+
   useEffect(() => {
     getAll().then((data) => setBooks(data))
   }, [])
@@ -44,6 +48,7 @@ const BooksApp = () => {
           wantToRead,
           read,
           selectedBook,
+          handleSelect,
         }}
       >
         <Main />

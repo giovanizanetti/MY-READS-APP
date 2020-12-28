@@ -12,7 +12,7 @@ const Book = ({ book }) => {
   const bookAuthors = authors && authors.map((author) => <p key={author}>{author}</p>)
 
   return (
-    <li>
+    <li onClick={() => console.log('selected book', id)}>
       <div className='book'>
         <div className='book-top'>
           <div
