@@ -5,7 +5,7 @@ const BookShelfChanger = ({ shelf, id }) => {
   const { handleShelf } = useContext(BooksContext)
   return (
     <div className='book-shelf-changer'>
-      <select value={shelf} onChange={(e) => handleShelf(e.target.value, id)}>
+      <select value={shelf ? shelf : 'none'} onChange={(e) => handleShelf(e.target.value, id)}>
         <option value='move' disabled>
           Move to...
         </option>

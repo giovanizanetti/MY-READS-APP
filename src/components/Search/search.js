@@ -15,7 +15,7 @@ const Search = () => {
   }, [query])
 
   const handleChange = (e) => {
-    const searchTerm = e.target.value.toLowerCase()
+    const searchTerm = e.target.value.toLowerCase().trim()
     if (!searchTerm) setBooks([])
     setQuery(searchTerm)
   }
