@@ -6,27 +6,39 @@ import { BooksProvider } from './BooksProvider'
 import { getAll, update } from './BooksAPI'
 
 const BooksApp = () => {
+  const [searchResults, setSearchResults] = useState([])
   const [books, setBooks] = useState([])
-  const [selectedBook, setSelectedBook] = useState(null)
 
+  const [selectedBook, setSelectedBook] = useState(null)
   const currentlyReading = books && books.filter((book) => book.shelf === 'currentlyReading')
   const wantToRead = books && books.filter((book) => book.shelf === 'wantToRead')
   const read = books && books.filter((book) => book.shelf === 'read')
 
+  useEffect(() => {
+    getAll().then((data) => {
+      setBooks(data)
+    })
+  })
+
   const handleShelf = (shelf, book) => {
+    console.log(book, shelf)
     const { id } = book
     const myBooks = [...books]
+
     // check if book is already
     const isBook = myBooks.find((book) => book.id === id)
 
     // when book already exists, change it to the selected shelf
     if (isBook !== undefined) {
+      console.log(books.length)
       const bookIndex = myBooks.findIndex((book) => book.id === id)
       myBooks[bookIndex].shelf = shelf
       console.log('this book is already there')
-      // When book does not exists, add it to teh selected shelf
+      // When book does not exists, add it to the selected shelf
     } else {
-      myBooks.push(book)
+      const updatedBooks = [...books]
+      updatedBooks.push(book)
+      setBooks(updatedBooks)
     }
     // update state
     setBooks(myBooks)
@@ -37,13 +49,8 @@ const BooksApp = () => {
   }
 
   const handleSelect = (book) => {
-    console.log(book)
     setSelectedBook(book)
   }
-
-  useEffect(() => {
-    getAll().then((data) => setBooks(data))
-  }, [])
 
   return (
     <div className='app'>
@@ -54,11 +61,13 @@ const BooksApp = () => {
         value={{
           books,
           handleShelf,
-          currentlyReading,
-          wantToRead,
-          read,
           selectedBook,
           handleSelect,
+          searchResults,
+          setSearchResults,
+          currentlyReading,
+          read,
+          wantToRead,
         }}
       >
         <Main />
