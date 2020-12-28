@@ -7,15 +7,22 @@ import { getAll, update } from './BooksAPI'
 
 const BooksApp = () => {
   const [books, setBooks] = useState([])
+  const [selectedBook, setSelectedBook] = useState(null)
 
   const currentlyReading = books && books.filter((book) => book.shelf === 'currentlyReading')
   const wantToRead = books && books.filter((book) => book.shelf === 'wantToRead')
   const read = books && books.filter((book) => book.shelf === 'read')
 
-  const handleShelf = (shelf, id) => {
+  const handleShelf = (shelf, id, book) => {
+    console.log(id)
     const myBooks = [...books]
-    const bookIndex = myBooks.findIndex((book) => book.id === id)
-    myBooks[bookIndex].shelf = shelf
+    if (id) {
+      const bookIndex = myBooks.findIndex((book) => book.id === id)
+      myBooks[bookIndex].shelf = shelf
+    }
+    if (book) {
+      myBooks.push(book)
+    }
     setBooks(myBooks)
     update(id, shelf)
   }
@@ -36,6 +43,7 @@ const BooksApp = () => {
           currentlyReading,
           wantToRead,
           read,
+          selectedBook,
         }}
       >
         <Main />
