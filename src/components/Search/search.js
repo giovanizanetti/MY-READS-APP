@@ -1,26 +1,21 @@
-import { useState, useContext, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import BookShelf from '../BookShelf/BookShelf'
 import { search } from '../../BooksAPI'
-import BooksContext from '../../BooksProvider'
 
 const Search = () => {
-  const { handleShelf } = useContext(BooksContext)
-
   const [query, setQuery] = useState('')
-  const [books, setBooks] = useState([])
-  console.log(books.map((book) => book.imageLinks))
+  const [searchResults, setSearchResults] = useState([])
 
   useEffect(() => {
-    query && search(query).then((data) => setBooks(data))
+    query && search(query).then((data) => setSearchResults(data))
   }, [query])
 
   const handleChange = (e) => {
-    const searchTerm = e.target.value.toLowerCase().trim()
-    if (!searchTerm) setBooks([])
+    const searchTerm = e.target.value.toLowerCase()
+    if (!searchTerm) setSearchResults([])
     setQuery(searchTerm)
   }
-  console.log(books)
   return (
     <div className='search-books'>
       <div className='search-books-bar'>
@@ -40,7 +35,7 @@ const Search = () => {
         </div>
       </div>
       <div className='search-books-results'>
-        {books.length ? <BookShelf books={books} /> : <strong>'No books found'</strong>}
+        {searchResults.length ? <BookShelf search={true} books={searchResults} /> : <strong>'No books found'</strong>}
       </div>
     </div>
   )

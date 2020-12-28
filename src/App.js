@@ -8,7 +8,6 @@ import { getAll, update } from './BooksAPI'
 const BooksApp = () => {
   const [searchResults, setSearchResults] = useState([])
   const [books, setBooks] = useState([])
-
   const [selectedBook, setSelectedBook] = useState(null)
   const currentlyReading = books && books.filter((book) => book.shelf === 'currentlyReading')
   const wantToRead = books && books.filter((book) => book.shelf === 'wantToRead')
@@ -30,10 +29,8 @@ const BooksApp = () => {
 
     // when book already exists, change it to the selected shelf
     if (isBook !== undefined) {
-      console.log(books.length)
       const bookIndex = myBooks.findIndex((book) => book.id === id)
       myBooks[bookIndex].shelf = shelf
-      console.log('this book is already there')
       // When book does not exists, add it to the selected shelf
     } else {
       const updatedBooks = [...books]
