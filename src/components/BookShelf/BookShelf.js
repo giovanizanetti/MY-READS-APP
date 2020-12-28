@@ -1,13 +1,11 @@
-import Book from '../Book/Book'
+import BookList from '../BookList/BookList'
 
 const BookShelf = ({ name, books, search }) => {
   return (
     <section className='bookshelf'>
       <h2 className='bookshelf-title'>{name && name}</h2>
       <div className='bookshelf-books'>
-        <ol className='books-grid'>
-          {books && books.map((book) => <Book key={book.id} book={book} search={search} />)}
-        </ol>
+        <BookList books={books} search={search} />
       </div>
     </section>
   )
