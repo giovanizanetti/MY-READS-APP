@@ -4,4 +4,4 @@ export const BooksContext = createContext([])
 
 export const BooksProvider = BooksContext.Provider
 
-export default BooksProvider
+export default BooksContext

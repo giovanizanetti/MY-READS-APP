@@ -1,12 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState, useContext } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import BookShelf from '../BookShelf/BookShelf'
 import { search } from '../../BooksAPI'
+import BooksContext from '../../BooksProvider'
 
 const Search = () => {
-  const [query, setQuery] = useState(null)
+  const { books, handleShelf } = useContext(BooksContext)
 
-  // useEffect(() => , [query])
+  const [query, setQuery] = useState(null)
 
   const handleChange = (e) => {
     setQuery(e.target.value)
