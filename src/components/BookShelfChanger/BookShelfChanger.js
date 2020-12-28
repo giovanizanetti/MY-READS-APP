@@ -1,4 +1,8 @@
-const BookShelfChanger = ({ shelf, handleShelf, id }) => {
+import { useContext } from 'react'
+import BooksContext from '../../BooksProvider'
+
+const BookShelfChanger = ({ shelf, id }) => {
+  const { handleShelf } = useContext(BooksContext)
   return (
     <div className='book-shelf-changer'>
       <select value={shelf} onChange={(e) => handleShelf(e.target.value, id)}>

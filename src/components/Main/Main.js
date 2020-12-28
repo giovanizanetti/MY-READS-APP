@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import Search from '../Search/Search'
 
 const Main = () => {
-  const { currentlyReading, wantToRead, read, handleShelf } = useContext(BooksContext)
+  const { currentlyReading, wantToRead, read } = useContext(BooksContext)
 
   return (
     <Router>
@@ -14,9 +14,9 @@ const Main = () => {
           <div className='list-books'>
             <div className='list-books-content'>
               <div>
-                <BookShelf name='Currently Reading' books={currentlyReading} handleShelf={handleShelf} />
-                <BookShelf name='Want to Read' books={wantToRead} handleShelf={handleShelf} />
-                <BookShelf name='Read' books={read} handleShelf={handleShelf} />
+                <BookShelf name='Currently Reading' books={currentlyReading} />
+                <BookShelf name='Want to Read' books={wantToRead} />
+                <BookShelf name='Read' books={read} />
               </div>
             </div>
             <Link to='/search' className='open-search'>

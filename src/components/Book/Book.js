@@ -1,6 +1,6 @@
 import BookShelfChanger from '../BookShelfChanger/BookShelfChanger'
 
-const Book = ({ book, handleShelf }) => {
+const Book = ({ book }) => {
   const {
     imageLinks: { thumbnail },
     title,
@@ -23,7 +23,7 @@ const Book = ({ book, handleShelf }) => {
               backgroundImage: `url(${thumbnail})`,
             }}
           >
-            <BookShelfChanger shelf={shelf} id={id} handleShelf={handleShelf} />
+            <BookShelfChanger shelf={shelf} id={id} />
           </div>
         </div>
         <div className='book-title'>{title}</div>
