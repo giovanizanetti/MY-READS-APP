@@ -28,6 +28,7 @@ const BooksApp = () => {
     <div className='app'>
       <Navigation />
 
+      {/* Pass books down to make it available for any consumer component within the provider */}
       <BooksProvider
         value={{
           books,
