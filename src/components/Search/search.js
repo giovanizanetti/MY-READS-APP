@@ -1,18 +1,23 @@
-import { useState, useContext } from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { useState, useContext, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import BookShelf from '../BookShelf/BookShelf'
 import { search } from '../../BooksAPI'
 import BooksContext from '../../BooksProvider'
 
 const Search = () => {
-  const { books, handleShelf } = useContext(BooksContext)
+  const { handleShelf } = useContext(BooksContext)
 
-  const [query, setQuery] = useState(null)
+  const [query, setQuery] = useState('')
+  const [books, setBooks] = useState([])
+
+  useEffect(() => {
+    query && search(query).then((data) => setBooks(data))
+  }, [query])
 
   const handleChange = (e) => {
-    setQuery(e.target.value)
-    query && search(query).then((data) => console.log(data))
-    console.log(query)
+    const searchTerm = e.target.value.toLowerCase()
+    if (!searchTerm) setBooks([])
+    setQuery(searchTerm)
   }
 
   return (
@@ -30,12 +35,11 @@ const Search = () => {
                   However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
                   you don't find a specific author or title. Every search is limited by search terms.
                 */}
-          <input type='text' placeholder='Search by title or author' onChange={handleChange} />
+          <input type='text' placeholder='Search by title or author' onChange={handleChange} value={query} />
         </div>
       </div>
       <div className='search-books-results'>
-        <BookShelf />
-        {/* <ol className='books-grid'></ol> */}
+        {books.length ? <BookShelf books={books} /> : <strong>'No books found'</strong>}
       </div>
     </div>
   )
