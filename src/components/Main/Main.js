@@ -1,33 +1,34 @@
-import { useState, useEffect } from 'react'
-import { getAll, update } from '../../BooksAPI'
+import { useContext } from 'react'
 import BookShelf from '../BookShelf/BookShelf'
+import BooksContext from '../../BooksProvider'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import Search from '../Search/Search'
 
 const Main = () => {
-  const [books, setBooks] = useState([])
-  const currentlyReading = books && books.filter((book) => book.shelf === 'currentlyReading')
-  const wantToRead = books && books.filter((book) => book.shelf === 'wantToRead')
-  const readBooks = books && books.filter((book) => book.shelf === 'read')
-
-  const handleShelf = (shelf, id) => {
-    const myBooks = [...books]
-    const bookIndex = myBooks.findIndex((book) => book.id === id)
-    myBooks[bookIndex].shelf = shelf
-    setBooks(myBooks)
-    update(id, shelf)
-  }
-
-  useEffect(() => {
-    getAll().then((data) => setBooks(data))
-  }, [])
+  const { currentlyReading, wantToRead, read, handleShelf } = useContext(BooksContext)
 
   return (
-    <div className='list-books-content'>
-      <div>
-        <BookShelf name='Currently Reading' books={currentlyReading} handleShelf={handleShelf} />
-        <BookShelf name='Want to Read' books={wantToRead} handleShelf={handleShelf} />
-        <BookShelf name='Read' books={readBooks} handleShelf={handleShelf} />
-      </div>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path='/'>
+          <div className='list-books'>
+            <div className='list-books-content'>
+              <div>
+                <BookShelf name='Currently Reading' books={currentlyReading} handleShelf={handleShelf} />
+                <BookShelf name='Want to Read' books={wantToRead} handleShelf={handleShelf} />
+                <BookShelf name='Read' books={read} handleShelf={handleShelf} />
+              </div>
+            </div>
+            <Link to='/search' className='open-search'>
+              <button>Add a book</button>
+            </Link>
+          </div>
+        </Route>
+        <Route path='/search'>
+          <Search />
+        </Route>
+      </Switch>
+    </Router>
   )
 }
 
