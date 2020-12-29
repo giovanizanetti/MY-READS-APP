@@ -16,7 +16,6 @@ const BooksApp = () => {
 
   useEffect(() => {
     if (shouldUpdate) {
-      console.log('reloaded')
       getAll()
         .then((data) => {
           setBooks(data)
