@@ -15,8 +15,8 @@ const BooksApp = () => {
   const read = books && books.filter((book) => book.shelf === 'read')
 
   useEffect(() => {
-    console.log('n')
     if (shouldUpdate) {
+      console.log('reloaded')
       getAll()
         .then((data) => {
           setBooks(data)
@@ -42,11 +42,10 @@ const BooksApp = () => {
       myBooks[bookIndex].shelf = shelf
       setBooks(myBooks)
 
-      // When book does not exists, add it to the selected shelf
+      // When book does not exists, add it to the selected shelf and update the state
     } else {
-      setBooks((prevBooks) => [...prevBooks, book])
+      // force update to update the books
       setShouldUpdate(true)
-      // setSelectedBook(book)
     }
   }
 
@@ -57,7 +56,7 @@ const BooksApp = () => {
       {/* Pass books down to make it available for any consumer component within the provider */}
       <BooksProvider
         value={{
-          // @ts-ignore
+          books,
           handleShelf,
           searchResults,
           setSearchResults,

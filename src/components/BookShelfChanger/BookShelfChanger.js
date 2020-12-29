@@ -1,12 +1,19 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import BooksContext from '../../BooksProvider'
 
 const BookShelfChanger = ({ book }) => {
+  const bookShelf = book.shelf ? book.shelf : 'none'
   const { handleShelf } = useContext(BooksContext)
+  const [value, setValue] = useState(bookShelf)
+
+  const handleChange = (e) => {
+    handleShelf(e.target.value, book)
+    setValue(e.target.value)
+  }
 
   return (
     <div className='book-shelf-changer'>
-      <select value={book.shelf ? book.shelf : 'none'} onChange={(e) => handleShelf(e.target.value, book)}>
+      <select value={value} onChange={handleChange}>
         <option value='move' disabled>
           Move to...
         </option>
