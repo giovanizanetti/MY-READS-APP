@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import BookShelf from '../BookShelf/BookShelf'
+import BookList from '../BookList/BookList'
 import { search } from '../../BooksAPI'
 
 const Search = () => {
@@ -35,7 +35,7 @@ const Search = () => {
         </div>
       </div>
       <div className='search-books-results'>
-        {searchResults.length ? <BookShelf search={true} books={searchResults} /> : <strong>'No books found'</strong>}
+        {searchResults.length ? <BookList search={true} books={searchResults} /> : <strong>'No books found'</strong>}
       </div>
     </div>
   )
