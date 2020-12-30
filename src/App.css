@@ -85,7 +85,15 @@ body,
   background-image: url('./icons/add.svg');
 }
 .toolbar #delete {
+  position: relative;
   background-image: url('./icons/delete.svg');
+}
+
+.toolbar #delete select {
+  display: none;
+  position: absolute;
+  right: 0.5rem;
+  top: 2.5rem;
 }
 
 .open-search button:hover {

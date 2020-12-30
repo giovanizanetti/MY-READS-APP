@@ -1,28 +1,27 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { StoreContext } from '../../Store'
 import { Link } from 'react-router-dom'
+import { update } from '../../BooksAPI'
 
 const Navigation = () => {
-  // const { darkTheme, setDarkTheme } = useContext(StoreContext)
-  // const buttonText = darkTheme ? 'Switch to light theme' : 'Switch to dark theme'
+  const { books, setBooks } = useContext(StoreContext)
 
-  // const style = { display: 'flex', justifyContent: 'space-between', padding: '10px 30px' }
-  // const buttonLightStyle = { background: '#554e4e', color: '#f2f2f2' }
+  const handleDelete = () => {
+    const confirm = window.confirm('Are you sure you want to empy all your book shelfs ?')
 
-  // const handleClick = (e) => {
-  //   e.target.blur()
-  //   setDarkTheme(!darkTheme)
-  // }
+    confirm && setBooks([])
+    books.map((book) => update(book.id, 'none'))
+  }
 
   return (
-    <div className='toolbar'>
-      <Link to='/search'>
-        <button id='search'></button>
-      </Link>
-      <Link to='/search'>
-        <button id='delete'></button>
-      </Link>
-    </div>
+    <>
+      <div className='toolbar'>
+        <Link to='/search'>
+          <button id='search'></button>
+        </Link>
+        <button id='delete' onClick={handleDelete}></button>
+      </div>
+    </>
   )
 }
 

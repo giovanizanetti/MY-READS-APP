@@ -53,6 +53,7 @@ const BooksApp = () => {
     <StoreProvider
       value={{
         books,
+        setBooks,
         handleShelf,
         searchResults,
         setSearchResults,
