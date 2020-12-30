@@ -14,7 +14,7 @@ const Navigation = () => {
   }
 
   return (
-    <nav style={style} className='list-books-title'>
+    <nav style={style} className='list-books-nav'>
       <h1>MyReads</h1>
       <button style={!darkTheme ? buttonLightStyle : null} onClick={handleClick}>
         {buttonText}
