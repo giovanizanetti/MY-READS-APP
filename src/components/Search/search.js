@@ -47,7 +47,12 @@ const Search = () => {
           Close
         </Link>
         <div className='search-books-input-wrapper'>
-          <input type='text' placeholder='Search by title or author' onChange={handleChange} value={value} />
+          <input
+            type='text'
+            placeholder='Search by title or author and add to your reads'
+            onChange={handleChange}
+            value={value}
+          />
         </div>
       </div>
       <div className='search-books-results'>
