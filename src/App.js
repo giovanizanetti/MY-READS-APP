@@ -4,12 +4,11 @@ import Navigation from './components/Navigation/Navigation'
 import Main from './components/Main/Main'
 import { StoreProvider } from './Store'
 import { getAll, update } from './BooksAPI'
-
 const BooksApp = () => {
   const [searchResults, setSearchResults] = useState([])
   const [books, setBooks] = useState([])
   const [shouldUpdate, setShouldUpdate] = useState(true)
-  const [darkTheme, setDarkTheme] = useState(false)
+  const [darkTheme, setDarkTheme] = useState(true)
 
   const currentlyReading = books && books.filter((book) => book.shelf === 'currentlyReading')
   const wantToRead = books && books.filter((book) => book.shelf === 'wantToRead')
