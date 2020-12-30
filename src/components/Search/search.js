@@ -26,7 +26,7 @@ const Search = () => {
     if (query.length && !searchResults.length) {
       setTimeout(() => {
         setMessage('Not found! Try another search term!')
-      }, 700)
+      }, 800)
     }
   }, [query, searchResults])
 
