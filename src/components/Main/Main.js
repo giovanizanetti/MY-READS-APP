@@ -12,6 +12,14 @@ const Main = () => {
       <Switch>
         <Route exact path='/'>
           <div className='list-books'>
+            <div className='toolbar'>
+              <Link to='/search'>
+                <button id='search'>Add a book</button>
+              </Link>
+              <Link to='/search'>
+                <button id='delete'>Add a book</button>
+              </Link>
+            </div>
             <div className='list-books-content'>
               <div>
                 <BookShelf name='Currently Reading' books={currentlyReading} />
@@ -19,9 +27,6 @@ const Main = () => {
                 <BookShelf name='Read' books={read} />
               </div>
             </div>
-            <Link to='/search' className='open-search'>
-              <button>Add a book</button>
-            </Link>
           </div>
         </Route>
         <Route path='/search'>
