@@ -1,25 +1,65 @@
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import BookList from '../BookList/BookList'
+import { search } from '../../BooksAPI'
+import { useDebounce } from '../../hooks/useDebounce'
+
 const Search = () => {
+  // APi query value (delayed)
+  const [query, setQuery] = useState('')
+  const [searchResults, setSearchResults] = useState([])
+  const [message, setMessage] = useState('')
+  // Inpute value
+  const [value, setValue] = useState('')
+
+  // fetch api
+  useEffect(() => {
+    if (!query) {
+      setSearchResults([])
+      setMessage('')
+    }
+    query && search(query).then((data) => setSearchResults(data))
+  }, [query])
+
+  // display message
+  useEffect(() => {
+    if (query.length && !searchResults.length) {
+      setTimeout(() => {
+        setMessage('Not found! Try another search term!')
+      }, 800)
+    }
+  }, [query, searchResults])
+
+  const debouncedSave = useDebounce((value) => setQuery(value), 500)
+
+  const handleChange = (e) => {
+    const text = e.target.value.toLowerCase()
+    // input value to display immediately
+    setValue(text)
+    // delay query to deminish api calls
+    debouncedSave(text)
+  }
+
   return (
     <div className='search-books'>
       <div className='search-books-bar'>
-        <button className='close-search' onClick={() => this.setState({ showSearchPage: false })}>
+        <Link className='close-search' to='/'>
           Close
-        </button>
+        </Link>
         <div className='search-books-input-wrapper'>
-          {/*
-                  NOTES: The search from BooksAPI is limited to a particular set of search terms.
-                  You can find these search terms here:
-                  https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
-
-                  However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
-                  you don't find a specific author or title. Every search is limited by search terms.
-                */}
-          <input type='text' placeholder='Search by title or author' />
+          <input
+            type='text'
+            placeholder='Search by title or author and add to your reads'
+            onChange={handleChange}
+            value={value}
+          />
         </div>
       </div>
       <div className='search-books-results'>
-        <ol className='books-grid'></ol>
+        {searchResults.length ? <BookList search={true} books={searchResults} /> : <strong>{message}</strong>}
       </div>
     </div>
   )
 }
+
+export default Search

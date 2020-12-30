@@ -1,13 +1,11 @@
-import Book from '../Book/Book'
+import BookList from '../BookList/BookList'
 
-const BookShelf = ({ name, books, handleShelf }) => {
+const BookShelf = ({ name, books }) => {
   return (
     <section className='bookshelf'>
-      <h2 className='bookshelf-title'>{name}</h2>
+      <h2 className='bookshelf-title'>{name && name}</h2>
       <div className='bookshelf-books'>
-        <ol className='books-grid'>
-          {books && books.map((book) => <Book key={book.id} book={book} handleShelf={handleShelf} />)}
-        </ol>
+        <BookList books={books} />
       </div>
     </section>
   )

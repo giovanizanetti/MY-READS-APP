@@ -1,32 +1,71 @@
+import { useState, useEffect } from 'react'
 import './App.css'
 import Navigation from './components/Navigation/Navigation'
 import Main from './components/Main/Main'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BooksProvider } from './BooksProvider'
+import { getAll, update } from './BooksAPI'
 
 const BooksApp = () => {
-  // state = {
-  //   /**
-  //    * TODO: Instead of using this state variable to keep track of which page
-  //    * we're on, use the URL in the browser's address bar. This will ensure that
-  //    * users can use the browser's back and forward buttons to navigate between
-  //    * pages, as well as provide a good URL they can bookmark and share.
-  //    */
-  //   showSearchPage: false,
-  // }
+  const [searchResults, setSearchResults] = useState([])
+  const [books, setBooks] = useState([])
+  const [shouldUpdate, setShouldUpdate] = useState(true)
+
+  const currentlyReading = books && books.filter((book) => book.shelf === 'currentlyReading')
+  const wantToRead = books && books.filter((book) => book.shelf === 'wantToRead')
+  const read = books && books.filter((book) => book.shelf === 'read')
+
+  useEffect(() => {
+    if (shouldUpdate) {
+      getAll()
+        .then((data) => {
+          setBooks(data)
+        })
+        .then(() => setShouldUpdate(false))
+        .catch((err) => console.log(err))
+    }
+    setShouldUpdate(false)
+  }, [shouldUpdate])
+
+  const handleShelf = (shelf, book) => {
+    const { id } = book
+
+    // update server
+    update(id, shelf)
+    // check if book is already on the shelf
+    const isBook = books.find((book) => book.id === id)
+
+    // when book already exists, change it to the selected shelf
+    if (isBook !== undefined) {
+      const myBooks = [...books]
+      const bookIndex = myBooks.findIndex((book) => book.id === id)
+      myBooks[bookIndex].shelf = shelf
+      setBooks(myBooks)
+
+      // When book does not exists, add it to the selected shelf and update the state
+    } else {
+      // force update to update the books
+      setShouldUpdate(true)
+    }
+  }
 
   return (
     <div className='app'>
       <Navigation />
-      <Router>
-        <Switch>
-          <div className='list-books'>
-            <Main />
-            <div className='open-search'>
-              <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
-            </div>
-          </div>
-        </Switch>
-      </Router>
+
+      {/* Pass books down to make it available for any consumer component within the provider */}
+      <BooksProvider
+        value={{
+          books,
+          handleShelf,
+          searchResults,
+          setSearchResults,
+          currentlyReading,
+          read,
+          wantToRead,
+        }}
+      >
+        <Main />
+      </BooksProvider>
     </div>
   )
 }
