@@ -16,7 +16,7 @@ body,
 /* main page */
 
 .list-books-nav {
-  padding: 10px 0;
+  padding: 10px 20px;
   background: #2e7c31;
   text-align: center;
 }
@@ -37,12 +37,15 @@ body,
 }
 
 .bookshelf {
-  padding: 0 10px 20px;
+  padding: 0 20px 20px;
 }
 
 @media (min-width: 600px) {
   .bookshelf {
-    padding: 0 20px 40px;
+    padding: 0 30px 40px;
+  }
+  .list-books-nav {
+    padding: 10px 30px;
   }
 }
 

@@ -17,10 +17,10 @@ const Navigation = () => {
   return (
     <div className='toolbar'>
       <Link to='/search'>
-        <button id='search'>Add a book</button>
+        <button id='search'></button>
       </Link>
       <Link to='/search'>
-        <button id='delete'>Add a book</button>
+        <button id='delete'></button>
       </Link>
     </div>
   )

@@ -5,7 +5,7 @@ const Navigation = () => {
   const { darkTheme, setDarkTheme } = useContext(StoreContext)
   const buttonText = darkTheme ? 'Switch to light theme' : 'Switch to dark theme'
 
-  const style = { display: 'flex', justifyContent: 'space-between', padding: '10px 30px' }
+  const style = { display: 'flex', justifyContent: 'space-between' }
   const buttonLightStyle = { background: '#554e4e', color: '#f2f2f2' }
 
   const handleClick = (e) => {
