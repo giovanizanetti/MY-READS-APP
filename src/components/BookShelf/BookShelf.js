@@ -20,7 +20,6 @@ const BookShelf = ({ name, books }) => {
     }
 
     books.map((book) => update(book.id, 'none'))
-    console.log(name)
   }
 
   return (
@@ -29,7 +28,11 @@ const BookShelf = ({ name, books }) => {
         <h2 style={darkTheme ? darkStyle : null} className='bookshelf-title'>
           {name && name}
         </h2>
-        {books.length ? <img onClick={handleDelete} width='26px' src={icon} alt='empty shelf' /> : ''}
+        {books.length ? (
+          <img style={{ cursor: 'pointer' }} onClick={handleDelete} width='26px' src={icon} alt='empty shelf' />
+        ) : (
+          ''
+        )}
       </div>
 
       <div className='bookshelf-books'>

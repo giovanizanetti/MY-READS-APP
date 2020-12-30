@@ -68,6 +68,7 @@ body,
 }
 
 .toolbar button {
+  cursor: pointer;
   margin: 0 0.5rem;
   display: block;
   width: 50px;
