@@ -5,8 +5,9 @@ import placeholder from '../../assets/book-placeholder.jpeg'
 
 const Book = ({ book, search }) => {
   const { title, authors, shelf, id, imageLinks } = book
-
-  const { books } = useContext(StoreContext)
+  const { books, darkTheme } = useContext(StoreContext)
+  const titleDarkStyle = { color: '#7dad7b' }
+  const authorDarkStyle = { color: '#abb3af' }
 
   // if book list coming from search results, check if book is already is in any shelf mybooks
   const isBook = () => {
@@ -34,8 +35,12 @@ const Book = ({ book, search }) => {
             <BookShelfChanger shelf={shelf} book={isBook() !== undefined ? isBook() : book} search={search} />
           </div>
         </div>
-        <div className='book-title'>{title}</div>
-        <div className='book-authors'>{bookAuthors}</div>
+        <div style={darkTheme ? titleDarkStyle : null} className='book-title'>
+          {title}
+        </div>
+        <div style={darkTheme ? authorDarkStyle : null} className='book-authors'>
+          {bookAuthors}
+        </div>
       </div>
     </li>
   )
