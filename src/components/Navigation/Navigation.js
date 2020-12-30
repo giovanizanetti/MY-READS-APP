@@ -1,4 +1,3 @@
-import { dark } from '@material-ui/core/styles/createPalette'
 import { useContext } from 'react'
 import { StoreContext } from '../../Store'
 
