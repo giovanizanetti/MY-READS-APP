@@ -9,10 +9,17 @@ const Search = () => {
   const [query, setQuery] = useState('')
   const [searchResults, setSearchResults] = useState([])
   const [message, setMessage] = useState('')
+<<<<<<< HEAD
   // Inpute value
   const [value, setValue] = useState('')
 
   useEffect(() => {
+=======
+  const [value, setValue] = useState('')
+
+  useEffect(() => {
+    console.log('calAPI')
+>>>>>>> b24cd19a3f780246dd4160a9e7bc9bd02797d911
     if (!query) {
       setSearchResults([])
       setMessage('')
@@ -20,11 +27,23 @@ const Search = () => {
     query && search(query).then((data) => setSearchResults(data))
   }, [query])
 
+<<<<<<< HEAD
   useEffect(() => {
     if (query.length && !searchResults.length) {
       setTimeout(() => {
         setMessage('Not found! Try another search term!')
       }, 700)
+=======
+  const debouncedSave = useDebounce((value) => setQuery(value), 500)
+
+  const handleChange = (e) => {
+    setMessage('')
+    const text = e.target.value.toLowerCase()
+    setValue(text)
+    debouncedSave(text, 500)
+    if (value.length && !searchResults.length) {
+      setMessage('Not found! Try another search term!')
+>>>>>>> b24cd19a3f780246dd4160a9e7bc9bd02797d911
     }
   }, [query, searchResults])
 
