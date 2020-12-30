@@ -29,23 +29,21 @@ const BooksApp = () => {
 
   const handleShelf = (shelf, book) => {
     const { id } = book
-
     // update server
     update(id, shelf)
     // check if book is already on the shelf
     const isBook = books.find((book) => book.id === id)
-
     // when book already exists, change it to the selected shelf
     if (isBook !== undefined) {
       const myBooks = [...books]
       const bookIndex = myBooks.findIndex((book) => book.id === id)
       myBooks[bookIndex].shelf = shelf
       setBooks(myBooks)
-
       // When book does not exists, add it to the selected shelf and update the state
     } else {
       // force update to update the books
       setShouldUpdate(true)
+      setBooks([...books, book])
     }
   }
 

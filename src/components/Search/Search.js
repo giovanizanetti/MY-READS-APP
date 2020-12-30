@@ -17,7 +17,6 @@ const Search = () => {
   const darkStyleInner = { background: '#bec2be' }
   const darkStyleOuter = { background: '#4b514d' }
   const msgDarkStyle = { color: '#1fcf17' }
-  //#4b514d
 
   // fetch api
   useEffect(() => {
