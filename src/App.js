@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import Navigation from './components/Navigation/Navigation'
+import Header from './components/Header/Header'
 import Main from './components/Main/Main'
 import { StoreProvider } from './Store'
 import { getAll, update } from './BooksAPI'
@@ -64,7 +64,7 @@ const BooksApp = () => {
       }}
     >
       <div style={darkTheme ? darkStyle : null} className='app'>
-        <Navigation />
+        <Header />
 
         {/* Pass books down to make it available for any consumer component within the provider */}
 
