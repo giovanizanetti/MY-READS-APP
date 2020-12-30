@@ -119,6 +119,7 @@ button:active {
 
 .search-books-results {
   padding: 80px 10px 20px;
+  height: 100vh;
 }
 
 /* books grid */

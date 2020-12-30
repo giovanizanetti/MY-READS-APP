@@ -4,15 +4,16 @@ import Navigation from './components/Navigation/Navigation'
 import Main from './components/Main/Main'
 import { StoreProvider } from './Store'
 import { getAll, update } from './BooksAPI'
-
 const BooksApp = () => {
   const [searchResults, setSearchResults] = useState([])
   const [books, setBooks] = useState([])
   const [shouldUpdate, setShouldUpdate] = useState(true)
+  const [darkTheme, setDarkTheme] = useState(true)
 
   const currentlyReading = books && books.filter((book) => book.shelf === 'currentlyReading')
   const wantToRead = books && books.filter((book) => book.shelf === 'wantToRead')
   const read = books && books.filter((book) => book.shelf === 'read')
+  const darkStyle = { background: '#313131' }
 
   useEffect(() => {
     if (shouldUpdate) {
@@ -49,24 +50,27 @@ const BooksApp = () => {
   }
 
   return (
-    <div className='app'>
-      <Navigation />
+    <StoreProvider
+      value={{
+        books,
+        handleShelf,
+        searchResults,
+        setSearchResults,
+        currentlyReading,
+        read,
+        wantToRead,
+        darkTheme,
+        setDarkTheme,
+      }}
+    >
+      <div style={darkTheme ? darkStyle : null} className='app'>
+        <Navigation />
 
-      {/* Pass books down to make it available for any consumer component within the provider */}
-      <StoreProvider
-        value={{
-          books,
-          handleShelf,
-          searchResults,
-          setSearchResults,
-          currentlyReading,
-          read,
-          wantToRead,
-        }}
-      >
+        {/* Pass books down to make it available for any consumer component within the provider */}
+
         <Main />
-      </StoreProvider>
-    </div>
+      </div>
+    </StoreProvider>
   )
 }
 
