@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import Navigation from './components/Navigation/Navigation'
 import Main from './components/Main/Main'
-import { BooksProvider } from './BooksProvider'
+import { StoreProvider } from './Store'
 import { getAll, update } from './BooksAPI'
 
 const BooksApp = () => {
@@ -53,7 +53,7 @@ const BooksApp = () => {
       <Navigation />
 
       {/* Pass books down to make it available for any consumer component within the provider */}
-      <BooksProvider
+      <StoreProvider
         value={{
           books,
           handleShelf,
@@ -65,7 +65,7 @@ const BooksApp = () => {
         }}
       >
         <Main />
-      </BooksProvider>
+      </StoreProvider>
     </div>
   )
 }

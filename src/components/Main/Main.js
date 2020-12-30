@@ -1,11 +1,11 @@
 import { useContext } from 'react'
 import BookShelf from '../BookShelf/BookShelf'
-import BooksContext from '../../BooksProvider'
+import StoreContext from '../../Store'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import Search from '../Search/Search'
 
 const Main = () => {
-  const { currentlyReading, wantToRead, read } = useContext(BooksContext)
+  const { currentlyReading, wantToRead, read } = useContext(StoreContext)
 
   return (
     <Router>

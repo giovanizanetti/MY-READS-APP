@@ -1,12 +1,12 @@
 import { useContext } from 'react'
-import BooksProvider from '../../BooksProvider'
+import StoreContext from '../../Store'
 import BookShelfChanger from '../BookShelfChanger/BookShelfChanger'
 import placeholder from '../../assets/book-placeholder.jpeg'
 
 const Book = ({ book, search }) => {
   const { title, authors, shelf, id, imageLinks } = book
 
-  const { books } = useContext(BooksProvider)
+  const { books } = useContext(StoreContext)
 
   // if book list coming from search results, check if book is already is in any shelf mybooks
   const isBook = () => {

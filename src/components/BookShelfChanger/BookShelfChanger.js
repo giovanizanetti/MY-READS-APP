@@ -1,9 +1,9 @@
 import { useContext, useState } from 'react'
-import BooksContext from '../../BooksProvider'
+import StoreContext from '../../Store'
 
 const BookShelfChanger = ({ book }) => {
   const bookShelf = book.shelf ? book.shelf : 'none'
-  const { handleShelf } = useContext(BooksContext)
+  const { handleShelf } = useContext(StoreContext)
   const [value, setValue] = useState(bookShelf)
 
   const handleChange = (e) => {
