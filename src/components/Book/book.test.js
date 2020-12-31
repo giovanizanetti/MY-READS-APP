@@ -1,6 +1,0 @@
-const Book = book => {
-  return (
-
-    
-  )
-}
