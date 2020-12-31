@@ -98,7 +98,7 @@ If I get stuck I always try to find the solution in one of the options:
 
 ## Create React App
 
-This project was scaffolded using the create-react-app cli.
+This project was scaffolded using the create-react-app cli. For instructions of how to run in your machine check it here👇👇👇
 
 **[The standard create-react-app docs can be found in here](./REACT-README.md)**
 
