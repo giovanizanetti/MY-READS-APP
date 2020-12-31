@@ -100,7 +100,7 @@ If I get stuck I always try to find the solution in one of the options:
 
 This project was scaffolded using the create-react-app cli. For instructions of how to run in your machine check it here👇👇👇
 
-**[The standard create-react-app docs can be found in here](./REACT-README.md)**
+**[The standard create-react-app docs can be found in here](./REACT.md)**
 
 
 ## [Check out the deployed version here!](https://my-books-app.netlify.app/)
