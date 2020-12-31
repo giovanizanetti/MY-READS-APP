@@ -5,8 +5,7 @@
 
 ## What this project is about
 
-I am creating this virtual bookshelf as part of a Udacity React Nanodegre, using ReactJS. In this project Iam practcing React CRUD operation as well as interacting wit external API. Check the user stories **[here](https://github.com/giovanizanetti/MY-POMODORO/blob/main/useStories.md)**. 
-
+I am creating this virtual bookshelf as part of a Udacity React Nanodegre, using ReactJS. In this project I'm practcing React CRUD operation as well as interacting wit external API.
 
 ## Technologie used
 - React.js
@@ -15,7 +14,7 @@ I am creating this virtual bookshelf as part of a Udacity React Nanodegre, using
 ## Goals for this project:
 
 - Practise: React hooks, CRUD app and semantic GIT commit messages and PR's.
-- Delivery Udacity assignmen.
+- Delivery Udacity assignment.
 - Showcase a new working application on my portfolio.
 
 
@@ -33,23 +32,23 @@ I am creating this virtual bookshelf as part of a Udacity React Nanodegre, using
 - Does the project code handle state management appropriately?
 - Does the code run without errors? Is the code free of warnings that resulted from not following the best practices listed in the documentation, such as using key for list items? Is the code formatted properly?
 
-For details chek ou my treelo board (https://trello.com/b/qaWIs7Ja/my-reads-app)
+For detailed intructions check out my [Trello board  for this project](https://trello.com/b/qaWIs7Ja/my-reads-app)
 
 
-## Features built so far
+## Features
 - Search books from exteranl API.
-- Add books to three diofferent shelves.
+- Add books to three different shelves.
 - Change shelf.
 - Empty shelf.
 - Empty all shelves.
-- remove a single title from any shelf.
+- Remove a single title from any shelf.
 - Navigate between main and search page.
-- Switch between dark and ligth themes.
+- Switch between dark and light themes.
 
 #### Click links to view the pull requests with summaries 👇👇👇
 
 - **[Feature - Search](https://github.com/giovanizanetti/My-Reads-App/pull/1)**
-- **[Feature - Dark Theme]((https://github.com/giovanizanetti/My-Reads-App/pull/2)**
+- **[Feature - Dark Theme](https://github.com/giovanizanetti/My-Reads-App/pull/2)**
 - **[Feature - Empty Shelves ](https://github.com/giovanizanetti/My-Reads-App/pull/3)**
 
 ## My git workflow
@@ -67,16 +66,16 @@ If you have feedback to improve my git usage: **[please drop me a line here!](ht
 
 #### Planing
 
-- Draw All of the Views of the App
-- Break Each View Into a Hierarchy of Components
-- Determine the Data Each Component Needs
-- Determine Which Component Each Piece of Data Should Live in
+- Draw all views of the application.
+- Break each view Into a Hierarchy of Components.
+- Determine the dataeEach component needs.
+- Determine which component each piece of data should live in.
 
 #### Coding
 
 - Create components/store/context that hold data.
 - Create components that need data.
-- Pass data to components that need it
+- Pass data to components that need it.
 
 #### Process
 
