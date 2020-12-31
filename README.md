@@ -1,92 +1,113 @@
 # MyReads Project
 
-This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
+## [Check out the deployed version here!](https://my-books-app.netlify.app/)
 
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
 
-## TL;DR
+## What this project is about
 
-To get started developing right away:
+I am creating this virtual bookshelf as part of a Udacity React Nanodegre, using ReactJS. In this project Iam practcing React CRUD operation as well as interacting wit external API. Check the user stories **[here](https://github.com/giovanizanetti/MY-POMODORO/blob/main/useStories.md)**. 
 
-* install all project dependencies with `npm install`
-* start the development server with `npm start`
 
-## What You're Getting
-```bash
-├── CONTRIBUTING.md
-├── README.md - This file.
-├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
-├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
-├── public
-│   ├── favicon.ico # React Icon, You may change if you wish.
-│   └── index.html # DO NOT MODIFY
-└── src
-    ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    ├── App.js # This is the root of your app. Contains static HTML right now.
-    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
-    ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
-    ├── icons # Helpful images for your app. Use at your discretion.
-    │   ├── add.svg
-    │   ├── arrow-back.svg
-    │   └── arrow-drop-down.svg
-    ├── index.css # Global styles. You probably won't need to change anything here.
-    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
-```
+## Technologie used
+- React.js
 
-Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
 
-## Backend Server
+## Goals for this project:
 
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
+- Practise: React hooks, CRUD app and semantic GIT commit messages and PR's.
+- Delivery Udacity assignmen.
+- Showcase a new working application on my portfolio.
 
-* [`getAll`](#getall)
-* [`update`](#update)
-* [`search`](#search)
 
-### `getAll`
+## Requirements
+- Is the application easy to install and start?
+- Does the application include README with clear installation and launch instructions?
+- Does the main page show three categories (or “bookshelves”) for books (currently reading, want to read, and read)?
+- Does the main page allow users to move books between shelves?
+- Does information persist between page refreshes?
+- Does the search page have a search input that lets users search for books?
+- Do the search results allow a user to categorize a book as “currently reading”, “want to read”, or “read”?
+- Do selections made on the search page show up on the main page?
+- Does the main page link to the search page?
+- Does the search page link back to the main page?
+- Does the project code handle state management appropriately?
+- Does the code run without errors? Is the code free of warnings that resulted from not following the best practices listed in the documentation, such as using key for list items? Is the code formatted properly?
 
-Method Signature:
+For details chek ou my treelo board (https://trello.com/b/qaWIs7Ja/my-reads-app)
 
-```js
-getAll()
-```
 
-* Returns a Promise which resolves to a JSON object containing a collection of book objects.
-* This collection represents the books currently in the bookshelves in your app.
+## Features built so far
+- Search books from exteranl API.
+- Add books to three diofferent shelves.
+- Change shelf.
+- Empty shelf.
+- Empty all shelves.
+- remove a single title from any shelf.
+- Navigate between main and search page.
+- Switch between dark and ligth themes.
 
-### `update`
+#### Click links to view the pull requests with summaries 👇👇👇
 
-Method Signature:
+- **[Feature - Search](https://github.com/giovanizanetti/My-Reads-App/pull/1)**
+- **[Feature - Dark Theme]((https://github.com/giovanizanetti/My-Reads-App/pull/2)**
+- **[Feature - Empty Shelves ](https://github.com/giovanizanetti/My-Reads-App/pull/3)**
 
-```js
-update(book, shelf)
-```
+## My git workflow
 
-* book: `<Object>` containing at minimum an `id` attribute
-* shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]  
-* Returns a Promise which resolves to a JSON object containing the response data of the POST request
+In this project I practice:
 
-### `search`
+- Good commit messages,
+- Well named branches,
+- Pull requests with summaries
 
-Method Signature:
+If you have feedback to improve my git usage: **[please drop me a line here!](https://www.linkedin.com/in/giovani-zanetti-ab664a24/)** or e-mail me at zanetti.giovani@gmail.com.
 
-```js
-search(query)
-```
 
-* query: `<String>`
-* Returns a Promise which resolves to a JSON object containing a collection of a maximum of 20 book objects.
-* These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
+## My workflow
 
-## Important
-The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
+#### Planing
+
+- Draw All of the Views of the App
+- Break Each View Into a Hierarchy of Components
+- Determine the Data Each Component Needs
+- Determine Which Component Each Piece of Data Should Live in
+
+#### Coding
+
+- Create components/store/context that hold data.
+- Create components that need data.
+- Pass data to components that need it
+
+#### Process
+
+- I always do one small step at the time.
+- Test.
+- Commit.
+- Push to GitHub.
+
+Usually, when I encounter a bug which is not related to the functionality I am working with, I take a note to tackle it later.
+If I have any idea during the development process, I take a note and try to implement it later.
+
+I like using [Trello](https://trello.com/b/qaWIs7Ja/my-reads-app) to help with my notes. 
+
+If I get stuck I always try to find the solution in one of the options:
+  - Documentation
+  - Google
+  - Stackoverflow
+  - Youtube / Udemy tutorials
+
 
 ## Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+This project was scaffolded using the create-react-app cli.
 
-## Contributing
+**[The standard create-react-app docs can be found in here](./REACT-README.md)**
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+## [Check out the deployed version here!](https://my-books-app.netlify.app/)
+
+
+
+
+
+
