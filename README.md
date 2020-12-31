@@ -51,7 +51,7 @@ For detailed instructions check out my [Trello board  for this project](https://
 - **[Feature - Dark Theme](https://github.com/giovanizanetti/My-Reads-App/pull/2)**
 - **[Feature - Empty Shelves ](https://github.com/giovanizanetti/My-Reads-App/pull/3)**
 
-## My git workflow
+## Git usage
 
 In this project I practice:
 
