@@ -9,7 +9,9 @@ const Book = ({ book, search }) => {
   const titleDarkStyle = { color: '#7dad7b' }
   const authorDarkStyle = { color: '#abb3af' }
 
-  // if book list coming from search results, check if book is already is in any shelf mybooks
+  // if book list coming from search results, check if book is already is in any shelf
+  // if book is on the shelf it will return the book
+  // if it returns the it will be used instead of API results
   const isBook = () => {
     if (search) {
       return books && books.find((book) => book.id === id)

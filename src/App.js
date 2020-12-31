@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import Navigation from './components/Navigation/Navigation'
+import Header from './components/Header/Header'
 import Main from './components/Main/Main'
 import { StoreProvider } from './Store'
 import { getAll, update } from './BooksAPI'
@@ -29,23 +29,21 @@ const BooksApp = () => {
 
   const handleShelf = (shelf, book) => {
     const { id } = book
-
     // update server
     update(id, shelf)
     // check if book is already on the shelf
     const isBook = books.find((book) => book.id === id)
-
     // when book already exists, change it to the selected shelf
     if (isBook !== undefined) {
       const myBooks = [...books]
       const bookIndex = myBooks.findIndex((book) => book.id === id)
       myBooks[bookIndex].shelf = shelf
       setBooks(myBooks)
-
       // When book does not exists, add it to the selected shelf and update the state
     } else {
       // force update to update the books
       setShouldUpdate(true)
+      setBooks([...books, book])
     }
   }
 
@@ -53,6 +51,7 @@ const BooksApp = () => {
     <StoreProvider
       value={{
         books,
+        setBooks,
         handleShelf,
         searchResults,
         setSearchResults,
@@ -64,7 +63,7 @@ const BooksApp = () => {
       }}
     >
       <div style={darkTheme ? darkStyle : null} className='app'>
-        <Navigation />
+        <Header />
 
         {/* Pass books down to make it available for any consumer component within the provider */}
 
