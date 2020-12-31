@@ -6,7 +6,8 @@ import Search from '../Search/Search'
 import ToolBar from '../ToolBar/ToolBar'
 
 const Main = () => {
-  const { currentlyReading, wantToRead, read } = useContext(StoreContext)
+  const { currentlyReading, wantToRead, read, darkTheme } = useContext(StoreContext)
+  const darkStyle = { background: '#313131' }
 
   return (
     <Router>
@@ -14,7 +15,7 @@ const Main = () => {
         <Route exact path='/'>
           <div className='list-books'>
             <ToolBar />
-            <div className='list-books-content'>
+            <div style={darkTheme ? darkStyle : null} className='list-books-content'>
               <div>
                 <BookShelf name='Currently Reading' books={currentlyReading} />
                 <BookShelf name='Want to Read' books={wantToRead} />
