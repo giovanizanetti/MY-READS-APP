@@ -94,6 +94,14 @@ If I get stuck I always try to find the solution in one of the options:
   - Google
   - Stackoverflow
   - Youtube / Udemy tutorials
+  
+  
+## Instalation
+
+- Run ```git clone https://github.com/giovanizanetti/My-Reads-App.git``` from your machine.
+- cd to project folder
+- ```run npm install``` or  ```yarn install``` to install all dependencies of the project.
+- run ```yarn start``` or ```npm start``` to see the project on your browser.
 
 
 ## Create React App
