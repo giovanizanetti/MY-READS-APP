@@ -5,9 +5,9 @@
 
 ## What this project is about
 
-I am creating this virtual bookshelf as part of a Udacity React Nanodegre, using ReactJS. In this project I'm practcing React CRUD operation as well as interacting wit external API.
+I am creating this virtual bookshelf as part of a Udacity React Nanodegre, using ReactJS. In this project, I'm practising React CRUD operation as well as interacting with external API.
 
-## Technologie used
+## Technologies used
 - React.js
 
 
@@ -32,11 +32,11 @@ I am creating this virtual bookshelf as part of a Udacity React Nanodegre, using
 - Does the project code handle state management appropriately?
 - Does the code run without errors? Is the code free of warnings that resulted from not following the best practices listed in the documentation, such as using key for list items? Is the code formatted properly?
 
-For detailed intructions check out my [Trello board  for this project](https://trello.com/b/qaWIs7Ja/my-reads-app)
+For detailed instructions check out my [Trello board  for this project](https://trello.com/b/qaWIs7Ja/my-reads-app)
 
 
 ## Features
-- Search books from exteranl API.
+- Search books from external API.
 - Add books to three different shelves.
 - Change shelf.
 - Empty shelf.
@@ -68,7 +68,7 @@ If you have feedback to improve my git usage: **[please drop me a line here!](ht
 
 - Draw all views of the application.
 - Break each view Into a Hierarchy of Components.
-- Determine the dataeEach component needs.
+- Determine the data each component needs.
 - Determine which component each piece of data should live in.
 
 #### Coding
