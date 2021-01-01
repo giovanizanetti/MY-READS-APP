@@ -9,8 +9,10 @@ const Navigation = () => {
   const handleDelete = () => {
     const confirm = window.confirm('Are you sure you want to empy all your book shelfs ?')
 
-    confirm && setBooks([])
-    books.map((book) => update(book.id, 'none'))
+    if (confirm) {
+      setBooks([])
+      books.map((book) => update(book.id, 'none'))
+    }
   }
 
   return (
