@@ -13,7 +13,7 @@ I am creating this virtual bookshelf as part of a Udacity React Nanodegre, using
 
 ## Goals for this project:
 
-- Practise: React hooks, CRUD app and semantic GIT commit messages and PR's.
+- Practise: React hooks, CRUD app, semantic GIT commit messages and PR's.
 - Delivery Udacity assignment.
 - Showcase a new working application on my portfolio.
 
@@ -94,13 +94,21 @@ If I get stuck I always try to find the solution in one of the options:
   - Google
   - Stackoverflow
   - Youtube / Udemy tutorials
+  
+  
+## Instalation
+
+- Run ```git clone https://github.com/giovanizanetti/My-Reads-App.git``` from your machine.
+- ```cd``` to project folder
+- ```run npm install``` or  ```yarn install``` to install all dependencies of the project.
+- run ```yarn start``` or ```npm start``` to see the project on your browser.
 
 
 ## Create React App
 
-This project was scaffolded using the create-react-app cli. For instructions of how to run in your machine check it here👇👇👇
+This project was scaffolded using the create-react-app cli. For more instructions of how to run in your machine check it here👇👇👇
 
-**[The standard create-react-app docs can be found in here](./REACT-README.md)**
+**[The standard create-react-app docs can be found in here](./REACT.md)**
 
 
 ## [Check out the deployed version here!](https://my-books-app.netlify.app/)
