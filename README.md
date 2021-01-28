@@ -5,7 +5,7 @@
 
 ## What this project is about
 
-I am creating this virtual bookshelf as part of a Udacity React Nanodegre, using ReactJS. In this project, I'm practising React CRUD operation as well as interacting with external API.
+I am creating this virtual bookshelf as part of the Udacity's React Nanodegre, using ReactJS. In this project, I'm practising React CRUD operations as well as interacting with external API.
 
 ## Technologies used
 - React.js
